@@ -54,10 +54,6 @@ public class Field implements Iterable<String>
         {
             return subFields.get(subFieldName);
         }
-        else if (subFieldName.equalsIgnoreCase(""))
-        {
-            return subFields.get("scalar");
-        }
         return null;
     }
 

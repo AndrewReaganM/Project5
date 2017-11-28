@@ -69,6 +69,6 @@ public class InfantTest
     public void testGetAverageValue()
     {
         Assert.assertEquals("Returns the average value of a field", 149.99,
-                inf.getAverageValue("time", "scalar").getDoubleValue(), 0.001);
+                inf.getAverageValue("time", "").getDoubleValue(), 0.001);
     }
 }

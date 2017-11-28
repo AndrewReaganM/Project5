@@ -122,12 +122,6 @@ public class State extends SingleItemAbstract
     @Override
     public State getMaxState(String fieldName, String subFieldName)
     {
-      //If the code is looking for an empty string, change it to scalar (makes code work with old things).
-        if (subFieldName.equalsIgnoreCase(""))
-        {
-            subFieldName = "scalar";
-        }
-        
         //Return this value, if it is valid.
         if (this.getValue(fieldName, subFieldName).isValid())
         {
@@ -150,12 +144,6 @@ public class State extends SingleItemAbstract
     @Override
     public State getMinState(String fieldName, String subFieldName)
     {
-      //If the code is looking for an empty string, change it to scalar (makes code work with old things).
-        if (subFieldName.equalsIgnoreCase(""))
-        {
-            subFieldName = "scalar";
-        }
-        
       //Return this value, if it is valid.
         if (this.getValue(fieldName, subFieldName).isValid())
         {
@@ -178,12 +166,6 @@ public class State extends SingleItemAbstract
     @Override
     public GeneralValue getAverageValue(String fieldName, String subFieldName)
     {
-      //If the code is looking for an empty string, change it to scalar (makes code work with old things).
-        if (subFieldName.equalsIgnoreCase(""))
-        {
-            subFieldName = "scalar";
-        }
-        
       //Return this value, if it is valid.
         if (this.getValue(fieldName, subFieldName).isValid())
         {

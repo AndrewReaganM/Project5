@@ -44,7 +44,7 @@ public class FieldMapper implements Iterable<String>
         for (int i = 0; i < columnNames.length; ++i)
         {
             String fieldName = columnNames[i];
-            String subFieldName = "scalar";
+            String subFieldName = "";
 
             if (fieldName.charAt(fieldName.length() - 2) == '_')
             {

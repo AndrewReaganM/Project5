@@ -39,11 +39,11 @@ public class StateTest
     {
         // Test getTime against desired state time
         Assert.assertEquals("Tests the getTrial method in State: ", "data/subject_k2_w01.csv",
-                inf.getItem(0).getItem(0).getMaxState("time", "scalar").getTrial().getFileName());
+                inf.getItem(0).getItem(0).getMaxState("time", "").getTrial().getFileName());
         Assert.assertEquals("Tests Get Average Value", 0.0,
-                inf.getItem(0).getItem(0).getAverageValue("time", "scalar").getDoubleValue(), 0.001);
+                inf.getItem(0).getItem(0).getAverageValue("time", "").getDoubleValue(), 0.001);
         Assert.assertEquals("Tests Get Average Value", 0.0,
-                inf.getItem(0).getItem(0).getMinState("time", "scalar").getValue("time", "scalar").getDoubleValue(),
+                inf.getItem(0).getItem(0).getMinState("time", "").getValue("time", "").getDoubleValue(),
                 0.001);
         Assert.assertEquals("Tests toString method of state: ", "left_ankle x = -0.081; y = 0.278; z = 0.009; \n"
                 + "left_elbow x = 0.292; y = 0.117; z = 0.174; \n" + "left_foot x = 0.011; y = 0.320; z = -0.009; \n"

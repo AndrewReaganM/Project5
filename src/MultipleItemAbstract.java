@@ -32,11 +32,6 @@ public abstract class MultipleItemAbstract extends SingleItemAbstract
      */
     public State getMaxState(String fieldName, String subFieldName)
     {
-        //If the code is looking for an empty string, change it to scalar (makes code work with old things).
-        if (subFieldName.equalsIgnoreCase(""))
-        {
-            subFieldName = "scalar";
-        }
         // Best value found so far
         GeneralValue maxValue = new GeneralValue();
 
@@ -74,11 +69,6 @@ public abstract class MultipleItemAbstract extends SingleItemAbstract
      */
     public State getMinState(String fieldName, String subFieldName)
     {
-      //If the code is looking for an empty string, change it to scalar (makes code work with old things).
-        if (subFieldName.equalsIgnoreCase(""))
-        {
-            subFieldName = "scalar";
-        }
      // Best value found so far
         GeneralValue minValue = new GeneralValue();
 
@@ -115,12 +105,6 @@ public abstract class MultipleItemAbstract extends SingleItemAbstract
      */
     public GeneralValue getAverageValue(String fieldName, String subFieldName)
     {
-      //If the code is looking for an empty string, change it to scalar (makes code work with old things).
-        if (subFieldName.equalsIgnoreCase(""))
-        {
-            subFieldName = "scalar";
-        }
-        
         //Tracks the total value
         Double val = 0.0;
         //Tracks the number of valid values that are being dealt with.
