@@ -38,7 +38,7 @@ public class KinematicPanel extends JPanel
     private String title;
     /** Font used for panel title.  */
     // TODO: initialize the font
-    private static final Font FONT = ???;
+    private static final Font FONT;
 
     /**
      * Constructor 
@@ -54,9 +54,7 @@ public class KinematicPanel extends JPanel
             double flipX, double flipY, 
             String screenXSubfield, String screenYSubfield, String title)
     {
-        File file = new File("Bembo");
-        FileInputStream stream = new FileInputStream(file);
-        Font helveticaFont = Font.createFont(Font.TYPE1_FONT, stream);
+        
         super();
         this.flipX = flipX;
         this.flipY = flipY;
@@ -65,6 +63,11 @@ public class KinematicPanel extends JPanel
         this.screenYSubfield = screenYSubfield;
         this.setPreferredSize(new Dimension(400, 200));
         this.title = title;
+        
+        //Font Setup
+        File file = new File("font/Raleway-Regular.ttf");
+        FileInputStream stream = new FileInputStream(file);
+        FONT = Font.createFont(Font.TRUETYPE_FONT, stream);
         
         // Set up the border for the panel
         Border border = BorderFactory.createLineBorder(Color.black);

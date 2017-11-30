@@ -13,7 +13,7 @@ public class Driver
     public static void main(String[] args) throws IOException
     {
         
-        //InfantFrame window = new InfantFrame();
+        InfantFrame window = new InfantFrame();
 
         //Infant inf = new Infant("data", "k2");
         
