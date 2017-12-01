@@ -25,7 +25,7 @@ public class KinematicPointState extends KinematicPointAbstract
     }
     
     /**
-     * @param state
+     * @param state 
      * @param screenSubfield
      * @return
      */

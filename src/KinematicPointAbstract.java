@@ -27,10 +27,13 @@ public abstract class KinematicPointAbstract
      */
     public KinematicPointAbstract(Color color, float width)
     {
+        //Create the ArrayList
+        children = new ArrayList<KinematicPointAbstract>();
     	//Set the color variable.
         this.color = color;
         //Set the width of the stroke.
         stroke = new BasicStroke(width);
+        
     }
     
     /**
@@ -39,7 +42,7 @@ public abstract class KinematicPointAbstract
      */
     public void addChild(KinematicPointAbstract child)
     {
-        children.add(child);
+            children.add(child);
     }
     
     /**
@@ -49,44 +52,31 @@ public abstract class KinematicPointAbstract
      * @param screenYSubfield
      */
     public void draw(Graphics2D g, State state, String screenXSubfield, String screenYSubfield)
-    {
-<<<<<<< HEAD
-        //Implement Graphics
-    }
-    
-    /**
-     * Sets the scale variable defined above.
-     * @param scale the current scale that needs to be set.
-     */
-    public static void setScale(double scale)
-    {
-        //Sets the static variable using this static method.
-        KinematicPointAbstract.scale = scale;
-=======
-    	//Grabs the GeneraValues representing the x and y values of this point.
-    	GeneralValue currentX = this.getScreenCoordinate(state, screenXSubfield);
-    	GeneralValue currentY = this.getScreenCoordinate(state, screenYSubfield);
-    	GeneralValue childX; //Declared outside of loop
-    	GeneralValue childY; //Declared outside of loop
-    	
+    {   
+        //Grabs the GeneraValues representing the x and y values of this point.
+        GeneralValue currentX = this.getScreenCoordinate(state, screenXSubfield);
+        GeneralValue currentY = this.getScreenCoordinate(state, screenYSubfield);
+        GeneralValue childX; //Declared outside of loop
+        GeneralValue childY; //Declared outside of loop
+        
         //Checks to make sure there are children
         if(!this.children.isEmpty())
         {
-        	//Iterates through each child.
-        	for (KinematicPointAbstract child : children)
-        	{
-        		//Grabs the GeneralValues for the child.
-        		childX = child.getScreenCoordinate(state, screenXSubfield);
-        		childY = child.getScreenCoordinate(state, screenYSubfield);
-        		
-        		//If all the GeneralValues are valid:
-        		if(currentX.isValid() && currentY.isValid() && childX.isValid() && childY.isValid())
-        		{
-        			//TODO: Transform into pixel coordinates and draw a line between the two points. Use BasicStroke
-        			
-        		}
-        		//TODO: Recursively draw.
-        	}
+            //Iterates through each child.
+            for (KinematicPointAbstract child : children)
+            {
+                //Grabs the GeneralValues for the child.
+                childX = child.getScreenCoordinate(state, screenXSubfield);
+                childY = child.getScreenCoordinate(state, screenYSubfield);
+                
+                //If all the GeneralValues are valid:
+                if(currentX.isValid() && currentY.isValid() && childX.isValid() && childY.isValid())
+                {
+                    // TODO: Transform into pixel coordinates and draw a line between the two points. Use BasicStroke
+                    
+                }
+                // TODO: Recursively draw.
+            }
         }
         
     }
@@ -99,7 +89,6 @@ public abstract class KinematicPointAbstract
     {
         //Set the scale of the point.
     	KinematicPointAbstract.scale = scale;
->>>>>>> 4b1771146b6438f24a8b1fc0d36e84751190d194
     }
     
     /**

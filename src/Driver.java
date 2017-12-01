@@ -1,3 +1,4 @@
+import java.awt.FontFormatException;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -10,7 +11,7 @@ import java.util.Iterator;
 
 public class Driver
 {
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, FontFormatException
     {
         
         InfantFrame window = new InfantFrame();

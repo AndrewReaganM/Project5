@@ -41,7 +41,6 @@ public class KinematicPanel extends JPanel
     /** Panel title */
     private String title;
     /** Font used for panel title.  */
-    // TODO: initialize the font
     private static Font FONT;
 
     /**
@@ -88,7 +87,6 @@ public class KinematicPanel extends JPanel
     public void setState(State state)
     {
         this.state = state;
-        this.repaint();
     }
 
     /**

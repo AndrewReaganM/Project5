@@ -11,8 +11,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -60,7 +60,7 @@ public class InfantFrame extends JFrame
     private Trial trial;
 
     /** Font used for labels and JLists.  */
-    private static final Font FONT = new Font(Font.SANS_SERIF, Font.BOLD, 18);
+    private static Font FONT;
 
     ///////////////////////////////////////////////////////////////////
     /**
@@ -277,7 +277,7 @@ public class InfantFrame extends JFrame
             if(infant != null)
             {
                 // Loop through every trial & add it to the list model
-                for (int i = 0; i <= infant.getSize(); i++)
+                for (int i = 0; i < infant.getSize(); i++)
                 {
                     this.trialListModel.addElement(infant.getItem(i).toString());
                 }
@@ -388,7 +388,7 @@ public class InfantFrame extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     // Set the current time to one higher than its current value
-                	++currentTime;
+                	DataPanel.this.setTime(currentTime + 1);
                     
                 }
 
@@ -540,11 +540,68 @@ public class InfantFrame extends JFrame
          */
         public KinematicPointAbstract createKinematicModel()
         {
-            // TODO: implement 
-        	// BROOOO WHAT IS THIS
+            // Create the root point
+            KinematicPointConstant root = new KinematicPointConstant(Color.RED, LINE_WIDTH, 0.0, 0.0, 0.0);
             
-            KinematicPointConstant root;
-
+            //Create root children
+            KinematicPointConstant lowerBack = new KinematicPointConstant(Color.RED, LINE_WIDTH, 0.1, 0.0, 0.0);
+            root.addChild(lowerBack);
+            KinematicPointConstant leftHip = new KinematicPointConstant(Color.RED, LINE_WIDTH, 0.0, 0.05, 0.0);
+            root.addChild(leftHip);
+            KinematicPointConstant rightHip = new KinematicPointConstant(Color.RED, LINE_WIDTH, 0.0, -0.05, 0.0);
+            root.addChild(rightHip);
+            
+            //Create lower back child, upperBack
+            KinematicPointState upperBack = new KinematicPointState(Color.BLACK, LINE_WIDTH, "upper_back");
+            lowerBack.addChild(upperBack);
+            
+            //Create leftHip child, leftKnee
+            KinematicPointState leftKnee = new KinematicPointState(Color.BLACK, LINE_WIDTH, "left_knee");
+            leftHip.addChild(leftKnee);
+            
+            //Create rightHip child, rightKnee
+            KinematicPointState rightKnee = new KinematicPointState(Color.BLACK, LINE_WIDTH, "right_knee");
+            rightHip.addChild(rightKnee);
+            
+            //Create upperBack children, rightShoulder and leftShoulder
+            KinematicPointState leftShoulder = new KinematicPointState(Color.BLACK, LINE_WIDTH, "left_shoulder");
+            KinematicPointState rightShoulder = new KinematicPointState(Color.BLACK, LINE_WIDTH, "right_shoulder");
+            upperBack.addChild(leftShoulder);
+            upperBack.addChild(rightShoulder);
+            
+            //Create leftKnee child, leftAnkle
+            KinematicPointState leftAnkle = new KinematicPointState(Color.BLACK, LINE_WIDTH, "left_ankle");
+            leftKnee.addChild(leftAnkle);
+            
+            //Create rightKnee child, rightAnkle
+            KinematicPointState rightAnkle = new KinematicPointState(Color.BLACK, LINE_WIDTH, "right_ankle");
+            rightKnee.addChild(rightAnkle);
+            
+            //Create leftShoulder child, leftElbow
+            KinematicPointState leftElbow = new KinematicPointState(Color.BLACK, LINE_WIDTH, "left_elbow");
+            leftShoulder.addChild(leftElbow);
+            
+            //Create rightShoulder child, rightElbow
+            KinematicPointState rightElbow = new KinematicPointState(Color.BLACK, LINE_WIDTH, "right_elbow");
+            rightShoulder.addChild(rightElbow);
+            
+            //Create leftAnkle child, leftFoot
+            KinematicPointState leftFoot = new KinematicPointState(Color.BLACK, LINE_WIDTH, "left_foot");
+            leftAnkle.addChild(leftFoot);
+            
+            //Create rightAnkle child, rightFoot
+            KinematicPointState rightFoot = new KinematicPointState(Color.BLACK, LINE_WIDTH, "right_foot");
+            rightAnkle.addChild(rightFoot);
+            
+            //Create leftElbow child, leftWrist
+            KinematicPointState leftWrist = new KinematicPointState(Color.BLACK, LINE_WIDTH, "left_wrist");
+            leftElbow.addChild(leftWrist);
+            
+            //Create rightElbow child, rightWrist
+            KinematicPointState rightWrist = new KinematicPointState(Color.BLACK, LINE_WIDTH, "right_wrist");
+            rightElbow.addChild(rightWrist);
+            
+            
             return root;
         }
 
@@ -575,10 +632,18 @@ public class InfantFrame extends JFrame
      * InfantFrame constructor
      * 
      * Two frames are side-by-side: SelectionPanel on the left and DataPanel on the right.
+     * @throws IOException 
+     * @throws FontFormatException 
      */
-    public InfantFrame()
+    public InfantFrame() throws FontFormatException, IOException
     {
         super("Infant Explorer");
+        
+      //Font Setup
+        File file = new File("font/Raleway-Regular.ttf");
+        FileInputStream stream = new FileInputStream(file);
+        FONT = Font.createFont(Font.TRUETYPE_FONT, stream);
+        FONT = FONT.deriveFont(Font.BOLD, 18);
 
         // Menu bar
         FileMenuBar fileMenuBar;
