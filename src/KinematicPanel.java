@@ -1,14 +1,18 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
@@ -38,7 +42,7 @@ public class KinematicPanel extends JPanel
     private String title;
     /** Font used for panel title.  */
     // TODO: initialize the font
-    private static final Font FONT;
+    private static Font FONT;
 
     /**
      * Constructor 
@@ -49,10 +53,12 @@ public class KinematicPanel extends JPanel
      * @param screenXSubfield Subfield name for the X dimension
      * @param screenYSubfield Subfield name for the Y dimension
      * @param title Panel title
+     * @throws IOException when the font file does not load
+     * @throws FontFormatException when the font is not in the correct format.
      */
     public KinematicPanel(KinematicPointAbstract rootPoint, 
             double flipX, double flipY, 
-            String screenXSubfield, String screenYSubfield, String title)
+            String screenXSubfield, String screenYSubfield, String title) throws FontFormatException, IOException
     {
         
         super();
@@ -94,7 +100,11 @@ public class KinematicPanel extends JPanel
     {
         super.paintComponent(g);
         
-        // TODO: Draw the title  
+        // Draw the title  
+        JLabel titleLabel = new JLabel();
+        titleLabel.setText(title);
+        this.add(titleLabel);
+        
 
         // Render as long as state is defined
         if (this.state != null)
@@ -107,6 +117,7 @@ public class KinematicPanel extends JPanel
             g2.scale(flipX, flipY);
             
             // TODO: Draw the kinematic tree 
+            
 
             
             // These next two lines make the border drawing work properly
