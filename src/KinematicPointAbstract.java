@@ -79,14 +79,16 @@ public abstract class KinematicPointAbstract
                 // If all the GeneralValues are valid:
                 if (currentX.isValid() && currentY.isValid() && childX.isValid() && childY.isValid())
                 {
-                    // Transform into pixel coordinates and draw a line between
-                    // the two points.
+                    // Transform into pixel coordinates and draw a line between the two points
                     // Use BasicStroke
                     g.setColor(color);
                     g.setStroke(stroke);
                     g.drawLine((int) (currentX.getDoubleValue() * scale), -(int) (currentY.getDoubleValue() * scale),
                             (int) (childX.getDoubleValue() * scale), -(int) (childY.getDoubleValue() * scale));
-                    // TODO: Recursively draw.
+                }
+                // TODO: Recursively draw.
+                if (state.iterator().hasNext())
+                {
                     draw(g, state, screenYSubfield, screenYSubfield);
                 }
             }
