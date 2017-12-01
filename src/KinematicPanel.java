@@ -102,7 +102,6 @@ public class KinematicPanel extends JPanel
         JLabel titleLabel = new JLabel();
         titleLabel.setText(title);
         this.add(titleLabel);
-        
 
         // Render as long as state is defined
         if (this.state != null)
@@ -115,8 +114,7 @@ public class KinematicPanel extends JPanel
             g2.scale(flipX, flipY);
             
             // TODO: Draw the kinematic tree 
-            
-
+            rootPoint.draw(g2, state, screenXSubfield, screenYSubfield);
             
             // These next two lines make the border drawing work properly
             // Flip back
