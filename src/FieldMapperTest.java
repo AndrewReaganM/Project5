@@ -7,6 +7,7 @@ import org.junit.Test;
 
 /**
  * Tests the FieldMapper class
+ * 
  * @author Andrew Massey
  * @author Luke Barnes
  * @version 11-13-17

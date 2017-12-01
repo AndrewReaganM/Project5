@@ -43,8 +43,7 @@ public class StateTest
         Assert.assertEquals("Tests Get Average Value", 0.0,
                 inf.getItem(0).getItem(0).getAverageValue("time", "").getDoubleValue(), 0.001);
         Assert.assertEquals("Tests Get Average Value", 0.0,
-                inf.getItem(0).getItem(0).getMinState("time", "").getValue("time", "").getDoubleValue(),
-                0.001);
+                inf.getItem(0).getItem(0).getMinState("time", "").getValue("time", "").getDoubleValue(), 0.001);
         Assert.assertEquals("Tests toString method of state: ", "left_ankle x = -0.081; y = 0.278; z = 0.009; \n"
                 + "left_elbow x = 0.292; y = 0.117; z = 0.174; \n" + "left_foot x = 0.011; y = 0.320; z = -0.009; \n"
                 + "left_knee x = -0.096; y = 0.142; z = -0.037; \n"

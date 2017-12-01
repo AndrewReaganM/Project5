@@ -8,9 +8,9 @@ import java.awt.Color;
  */
 public class KinematicPointState extends KinematicPointAbstract
 {
-	/** Stores the fieldname as a string */
-	private String fieldName;
-	
+    /** Stores the fieldname as a string */
+    private String fieldName;
+
     /**
      * @param color
      * @param width
@@ -18,13 +18,13 @@ public class KinematicPointState extends KinematicPointAbstract
      */
     public KinematicPointState(Color color, float width, String fieldName)
     {
-        //Call the super constructor
+        // Call the super constructor
         super(color, width);
-        this.fieldName =  fieldName;
+        this.fieldName = fieldName;
     }
-    
+
     /**
-     * @param state 
+     * @param state
      * @param screenSubfield
      * @return
      */

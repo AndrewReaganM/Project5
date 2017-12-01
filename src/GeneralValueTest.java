@@ -50,8 +50,7 @@ public class GeneralValueTest
     @Test
     public void testGreaterThan()
     {
-        Assert.assertEquals(299.98, inf.getMaxState("time", "").getValue("time", "").getDoubleValue(),
-                0.001);
+        Assert.assertEquals(299.98, inf.getMaxState("time", "").getValue("time", "").getDoubleValue(), 0.001);
     }
 
 }

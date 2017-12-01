@@ -131,12 +131,12 @@ public class GeneralValue
      */
     public boolean isLessThan(GeneralValue value)
     {
-      //If they are both valid, run a normal comparator.
+        // If they are both valid, run a normal comparator.
         if (this.isValid() && value.isValid())
         {
             return this.getDoubleValue() < value.getDoubleValue();
         }
-      //If this is valid, return true, if this is not valid, return false.
+        // If this is valid, return true, if this is not valid, return false.
         else
         {
             return this.isValid();
@@ -153,17 +153,17 @@ public class GeneralValue
      */
     public boolean isGreaterThan(GeneralValue value)
     {
-        //If they are both valid, run a normal comparator.
+        // If they are both valid, run a normal comparator.
         if (this.isValid() && value.isValid())
         {
             return this.getDoubleValue() > value.getDoubleValue();
         }
-        //If this is valid, return true, if this is not valid, return false.
+        // If this is valid, return true, if this is not valid, return false.
         else
         {
             return this.isValid();
         }
-        
+
     }
 
 }
