@@ -7,7 +7,7 @@ import java.awt.Color;
  */
 public class KinematicPointConstant extends KinematicPointAbstract
 {
-    /**  */
+    /** Variable where the constant point is stored */
     private PointND point;
 
     /**

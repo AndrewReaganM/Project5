@@ -11,13 +11,13 @@ import java.util.ArrayList;
  */
 public abstract class KinematicPointAbstract
 {
-    /**  */
+    /** An arraylist of children relating to this point. */
     private ArrayList<KinematicPointAbstract> children;
-    /**  */
+    /** The color of the line at this point. */
     private Color color;
-    /**  */
+    /** The stroke used. */
     private BasicStroke stroke;
-    /**  */
+    /** The scale used for this point. */
     private static double scale;
 
     /**

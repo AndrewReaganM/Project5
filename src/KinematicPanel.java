@@ -2,15 +2,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -34,6 +30,7 @@ public class KinematicPanel extends JPanel
     private String screenXSubfield;
     /** Subfield used for Y dimension. */
     private String screenYSubfield;
+    
     /** Root of the kinematic tree. */
     private KinematicPointAbstract rootPoint;
     /** State to render. */
@@ -107,8 +104,7 @@ public class KinematicPanel extends JPanel
     /**
      * Render the panel
      * 
-     * @param g
-     *            Graphics context
+     * @param g Graphics context
      */
     protected void paintComponent(Graphics g)
     {
@@ -124,7 +120,7 @@ public class KinematicPanel extends JPanel
             // Flip the drawing directions
             g2.scale(flipX, flipY);
 
-            // TODO: Draw the kinematic tree
+            // Draw the kinematic tree
             rootPoint.draw(g2, state, screenXSubfield, screenYSubfield);
 
             // These next two lines make the border drawing work properly
