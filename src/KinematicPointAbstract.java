@@ -45,21 +45,23 @@ public abstract class KinematicPointAbstract
      */
     public void draw(Graphics2D g, State state, String screenXSubfield, String screenYSubfield)
     {
-        
+        //Implement Graphics
     }
     
     /**
-     * @param scale
+     * Sets the scale variable defined above.
+     * @param scale the current scale that needs to be set.
      */
     public static void setScale(double scale)
     {
-        //Not sure how to set this, as it is static.
+        //Sets the static variable using this static method.
+        KinematicPointAbstract.scale = scale;
     }
     
     /**
-     * @param state
-     * @param screenSubfield
-     * @return
+     * @param state Current state of the infant.
+     * @param screenSubfield subfield of the screen
+     * @return a GeneralValue object that contatins the current coordinate.
      */
     public abstract GeneralValue getScreenCoordinate(State state, String screenSubfield);
 }

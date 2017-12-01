@@ -21,16 +21,27 @@ public class KinematicPointConstant extends KinematicPointAbstract
     {
       //Call the super constructor
         super(color, width);
+        
+        //Instantiate the new PointND
+        point = new PointND();
+        //Add x
+        point.add("x", new GeneralValue(x));
+        //Add y
+        point.add("y", new GeneralValue(y));
+        //Add z
+        point.add("z", new GeneralValue(z));
+        
     }
     
     /**
-     * @param state
-     * @param screenSubfield
-     * @return
+     * @param state State is unused in this context.
+     * @param screenSubfield the subfield of the given point requested.
+     * @return a GeneralValue representing the point determined by the subfield.
      */
     public GeneralValue getScreenCoordinate(State state, String screenSubfield)
     {
-        InfantFrame.this
+        //Returns the subfield of the point. The point is guaranteed to exist due to the class structure.
+        return point.getValue(screenSubfield);
     }
     
 }
