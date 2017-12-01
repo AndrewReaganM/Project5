@@ -75,16 +75,18 @@ public class KinematicPanel extends JPanel
         this.screenYSubfield = screenYSubfield;
         this.setPreferredSize(new Dimension(400, 200));
         this.title = title;
-        
-     // Draw the title
-        JLabel titleLabel = new JLabel();
-        titleLabel.setText(title);
-        this.add(titleLabel);
 
         // Font Setup
         File file = new File("font/Raleway-Regular.ttf");
         FileInputStream stream = new FileInputStream(file);
         FONT = Font.createFont(Font.TRUETYPE_FONT, stream);
+        FONT = FONT.deriveFont(Font.BOLD, 14);
+
+        // Draw the title
+        JLabel titleLabel = new JLabel();
+        titleLabel.setText(title);
+        titleLabel.setFont(FONT);
+        this.add(titleLabel);
 
         // Set up the border for the panel
         Border border = BorderFactory.createLineBorder(Color.black);
@@ -111,8 +113,6 @@ public class KinematicPanel extends JPanel
     protected void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-
-        
 
         // Render as long as state is defined
         if (this.state != null)
