@@ -12,6 +12,7 @@ public class KinematicPointConstant extends KinematicPointAbstract
     
     /**
      * Default constructor. Creates the constant kinematic points.
+     * 
      * @param color Color of the given point.
      * @param width Width of the given point.
      * @param x value for dimension

@@ -21,7 +21,6 @@ public class KinematicPointState extends KinematicPointAbstract
         //Call the super constructor
         super(color, width);
         this.fieldName =  fieldName;
-        
     }
     
     /**
