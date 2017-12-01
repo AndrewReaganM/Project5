@@ -289,11 +289,10 @@ public class InfantFrame extends JFrame
     /**
      * DataPanel: display selection information and statistics
      * 
-     * @author CS2334, modified by ???
-     * @version 2017-10-20
-     * 
-     * 
-     *
+     * @author CS2334, modified by
+     *     Andrew Massey
+     *     Luke Barnes
+     * @version 2017-11-29
      */
 
     public class DataPanel extends JPanel
@@ -640,6 +639,7 @@ public class InfantFrame extends JFrame
             timeTextField.setText(Integer.toString(currentTime));
             
             //TODO: Redraw components???????????
+            repaint();
         }
     }
 
