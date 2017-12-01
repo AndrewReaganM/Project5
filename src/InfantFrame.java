@@ -454,8 +454,26 @@ public class InfantFrame extends JFrame
                 @Override
                 public void stateChanged(ChangeEvent e)
                 {
-                    // Set the current time to match the slider time
-                    DataPanel.this.setTime(DataPanel.this.timeSlider.getValue());
+                    //If the slider is on 15000, reset it.
+                    if (DataPanel.this.timeSlider.getValue() > 14999)
+                    {
+                        //Stop the timer
+                        timer.stop();
+                        //Set the value of the slider
+                        DataPanel.this.timeSlider.setValue(0);
+                        //Set the time
+                        DataPanel.this.setTime(0);
+                        //Change the button to Start
+                        DataPanel.this.runButton.setText("Start");
+                        
+                    }
+                    
+                    //Set the time to the current slider value.
+                    else
+                    {
+                        // Set the current time to match the slider time
+                        DataPanel.this.setTime(DataPanel.this.timeSlider.getValue());
+                    }
                 }
 
             });
