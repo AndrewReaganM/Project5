@@ -69,7 +69,7 @@ public abstract class MultipleItemAbstract extends SingleItemAbstract
      */
     public State getMinState(String fieldName, String subFieldName)
     {
-     // Best value found so far
+        // Best value found so far
         GeneralValue minValue = new GeneralValue();
 
         State minState = new State();
@@ -105,9 +105,9 @@ public abstract class MultipleItemAbstract extends SingleItemAbstract
      */
     public GeneralValue getAverageValue(String fieldName, String subFieldName)
     {
-        //Tracks the total value
+        // Tracks the total value
         Double val = 0.0;
-        //Tracks the number of valid values that are being dealt with.
+        // Tracks the number of valid values that are being dealt with.
         int increment = 0;
         // Iterate through all of the states.
         for (int i = 0; i < this.getSize(); i++)
@@ -123,7 +123,7 @@ public abstract class MultipleItemAbstract extends SingleItemAbstract
         {
             return new GeneralValue();
         }
-        
+
         return new GeneralValue(val / (double) increment);
     }
 

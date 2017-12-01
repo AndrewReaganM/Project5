@@ -122,13 +122,13 @@ public class State extends SingleItemAbstract
     @Override
     public State getMaxState(String fieldName, String subFieldName)
     {
-        //Return this value, if it is valid.
+        // Return this value, if it is valid.
         if (this.getValue(fieldName, subFieldName).isValid())
         {
             return this;
         }
-        
-        //Return an invalid state if the current one is not marked as valid.
+
+        // Return an invalid state if the current one is not marked as valid.
         return new State();
     }
 
@@ -144,13 +144,13 @@ public class State extends SingleItemAbstract
     @Override
     public State getMinState(String fieldName, String subFieldName)
     {
-      //Return this value, if it is valid.
+        // Return this value, if it is valid.
         if (this.getValue(fieldName, subFieldName).isValid())
         {
             return this;
         }
-        
-        //Return an invalid state if the current one is not marked as valid.
+
+        // Return an invalid state if the current one is not marked as valid.
         return new State();
     }
 
@@ -166,13 +166,13 @@ public class State extends SingleItemAbstract
     @Override
     public GeneralValue getAverageValue(String fieldName, String subFieldName)
     {
-      //Return this value, if it is valid.
+        // Return this value, if it is valid.
         if (this.getValue(fieldName, subFieldName).isValid())
         {
             return this.getValue(fieldName, subFieldName);
         }
-        
-        //Return an invalid state if the current one is not marked as valid.
+
+        // Return an invalid state if the current one is not marked as valid.
         return new GeneralValue();
     }
 
