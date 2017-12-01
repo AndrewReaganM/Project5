@@ -86,13 +86,11 @@ public abstract class KinematicPointAbstract
                     g.setStroke(stroke);
                     g.drawLine((int) (currentX.getDoubleValue() * scale), -(int) (currentY.getDoubleValue() * scale),
                             (int) (childX.getDoubleValue() * scale), -(int) (childY.getDoubleValue() * scale));
+                    // TODO: Recursively draw.
+                    draw(g, state, screenYSubfield, screenYSubfield);
                 }
-                // TODO: Recursively draw.
-
             }
-
         }
-
     }
 
     /**
