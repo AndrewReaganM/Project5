@@ -53,8 +53,8 @@ public abstract class KinematicPointAbstract
     	//Grabs the GeneraValues representing the x and y values of this point.
     	GeneralValue currentX = this.getScreenCoordinate(state, screenXSubfield);
     	GeneralValue currentY = this.getScreenCoordinate(state, screenYSubfield);
-    	GeneralValue childX;
-    	GeneralValue childY;
+    	GeneralValue childX; //Declared outside of loop
+    	GeneralValue childY; //Declared outside of loop
     	
         //Checks to make sure there are children
         if(!this.children.isEmpty())

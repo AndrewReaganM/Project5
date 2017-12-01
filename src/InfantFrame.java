@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -276,9 +277,9 @@ public class InfantFrame extends JFrame
             if(infant != null)
             {
                 // Loop through every trial & add it to the list model
-                for (Trial t: infant)
+                for (int i = 0; i <= infant.getSize(); i++)
                 {
-                    this.trialListModel.addElement(t.toString());
+                    this.trialListModel.addElement(infant.getItem(i).toString());
                 }
             }
         }
@@ -341,8 +342,10 @@ public class InfantFrame extends JFrame
          * Constructor
          * 
          * Create and lay out the data display panel
+         * @throws IOException 
+         * @throws FontFormatException 
          */
-        private DataPanel()
+        private DataPanel() throws FontFormatException, IOException
         {
             // Background color of the panel
             this.setBackground(new Color(200, 200, 230));
@@ -384,8 +387,8 @@ public class InfantFrame extends JFrame
                 @Override
                 public void actionPerformed(ActionEvent e)
                 {
-                    // TODO: implement
                     // Set the current time to one higher than its current value
+                	++currentTime;
                     
                 }
 
@@ -468,7 +471,16 @@ public class InfantFrame extends JFrame
                     //  Based on this information, properly configure the button text and
                     //  the timer.
                     
-                    // TODO: implement
+                	if(runButton.getText().equals("Stop"))
+                	{
+                		timer.stop();
+                		runButton.setText("Start");
+                	}
+                	else
+                	{
+                		timer.start();
+                		runButton.setText("Stop");
+                	}
                 }
 
             });
@@ -502,8 +514,21 @@ public class InfantFrame extends JFrame
             // Do we have a trial?
             if (InfantFrame.this.trial != null)
             {
-                // TODO: complete the implementation
+                if(newTime > -1 && newTime <= trial.getSize())
+                {
+                	//Set the time
+                	this.currentTime = newTime;
+                	//Set the slider to the current time.
+                	timeSlider.setValue(this.currentTime);
+                	//Update the kinematic panel.
+                	update(trial.getItem(this.currentTime));
+                }
                 
+            }
+            else
+            {
+            	//Stops the timer if the time is not valid.
+            	timer.stop();
             }
         }
 
@@ -515,7 +540,8 @@ public class InfantFrame extends JFrame
          */
         public KinematicPointAbstract createKinematicModel()
         {
-            // TODO: implement
+            // TODO: implement 
+        	// BROOOO WHAT IS THIS
             
             KinematicPointConstant root;
 
@@ -532,7 +558,13 @@ public class InfantFrame extends JFrame
          */
         private void update(State state)
         {
-            // TODO: implement
+            topViewPanel.setState(state);
+            sideViewPanel.setState(state);
+            rearViewPanel.setState(state);
+            infantTextField.setText(infant.getInfantID());
+            timeTextField.setText(Integer.toString(currentTime));
+            
+            //TODO: Redraw components???????????
         }
     }
 
