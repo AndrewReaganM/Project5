@@ -8,6 +8,9 @@ import java.awt.Color;
  */
 public class KinematicPointState extends KinematicPointAbstract
 {
+	/** Stores the fieldname as a string */
+	private String fieldName;
+	
     /**
      * @param color
      * @param width
@@ -17,6 +20,7 @@ public class KinematicPointState extends KinematicPointAbstract
     {
         //Call the super constructor
         super(color, width);
+        this.fieldName =  fieldName;
         
     }
     
@@ -27,6 +31,6 @@ public class KinematicPointState extends KinematicPointAbstract
      */
     public GeneralValue getScreenCoordinate(State state, String screenSubfield)
     {
-        
+        return state.getValue(fieldName, screenSubfield);
     }
 }

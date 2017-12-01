@@ -21,16 +21,21 @@ public abstract class KinematicPointAbstract
     private static double scale;
     
     /**
-     * @param color
-     * @param width
+     * Constructor for the point.
+     * @param color a Color object that defines the color.
+     * @param width the width of the point
      */
     public KinematicPointAbstract(Color color, float width)
     {
+    	//Set the color variable.
         this.color = color;
+        //Set the width of the stroke.
+        stroke = new BasicStroke(width);
     }
     
     /**
-     * @param child
+     * Adds a passed in KinematicPointAbstract instance to an arraylist.
+     * @param child KinematicPointAbstract instance to add to the arraylist.
      */
     public void addChild(KinematicPointAbstract child)
     {
@@ -38,22 +43,49 @@ public abstract class KinematicPointAbstract
     }
     
     /**
-     * @param g
-     * @param state
+     * @param g graphics instance
+     * @param state current state to be rendered
      * @param screenXSubfield
      * @param screenYSubfield
      */
     public void draw(Graphics2D g, State state, String screenXSubfield, String screenYSubfield)
     {
+    	//Grabs the GeneraValues representing the x and y values of this point.
+    	GeneralValue currentX = this.getScreenCoordinate(state, screenXSubfield);
+    	GeneralValue currentY = this.getScreenCoordinate(state, screenYSubfield);
+    	GeneralValue childX;
+    	GeneralValue childY;
+    	
+        //Checks to make sure there are children
+        if(!this.children.isEmpty())
+        {
+        	//Iterates through each child.
+        	for (KinematicPointAbstract child : children)
+        	{
+        		//Grabs the GeneralValues for the child.
+        		childX = child.getScreenCoordinate(state, screenXSubfield);
+        		childY = child.getScreenCoordinate(state, screenYSubfield);
+        		
+        		//If all the GeneralValues are valid:
+        		if(currentX.isValid() && currentY.isValid() && childX.isValid() && childY.isValid())
+        		{
+        			//TODO: Transform into pixel coordinates and draw a line between the two points. Use BasicStroke
+        			
+        		}
+        		//TODO: Recursively draw.
+        	}
+        }
         
     }
     
     /**
-     * @param scale
+     * Sets the scale of the point.
+     * @param scale double value representing the scale
      */
     public static void setScale(double scale)
     {
-        //Not sure how to set this, as it is static.
+        //Set the scale of the point.
+    	KinematicPointAbstract.scale = scale;
     }
     
     /**
