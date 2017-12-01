@@ -46,10 +46,12 @@ public abstract class KinematicPointAbstract
     }
     
     /**
+     * 
+     * 
      * @param g graphics instance
      * @param state current state to be rendered
-     * @param screenXSubfield
-     * @param screenYSubfield
+     * @param screenXSubfield 
+     * @param screenYSubfield 
      */
     public void draw(Graphics2D g, State state, String screenXSubfield, String screenYSubfield)
     {   
@@ -60,7 +62,7 @@ public abstract class KinematicPointAbstract
         GeneralValue childY; //Declared outside of loop
         
         //Checks to make sure there are children
-        if(!this.children.isEmpty())
+        if (!this.children.isEmpty())
         {
             //Iterates through each child.
             for (KinematicPointAbstract child : children)
@@ -73,10 +75,13 @@ public abstract class KinematicPointAbstract
                 if(currentX.isValid() && currentY.isValid() && childX.isValid() && childY.isValid())
                 {
                     // TODO: Transform into pixel coordinates and draw a line between the two points. Use BasicStroke
-                    
+                    g.drawLine((int)(currentX.getDoubleValue() * scale), (int)(currentY.getDoubleValue() * scale), 
+                            (int)(childX.getDoubleValue() * scale), (int)(childY.getDoubleValue() * scale));
                 }
                 // TODO: Recursively draw.
+                
             }
+            
         }
         
     }
