@@ -38,8 +38,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  * Graphical user interface for interacting with Infant data
  * 
- * @author CS2334, modified by ????
- * @version 2017-10-20
+ * @author CS2334, modified by Luke Barnes and Andrew Massey
+ * @version 2017-12-01
  *
  */
 public class InfantFrame extends JFrame
