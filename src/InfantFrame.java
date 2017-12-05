@@ -11,7 +11,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -60,7 +59,7 @@ public class InfantFrame extends JFrame
     private Trial trial;
 
     /** Font used for labels and JLists.  */
-    private static Font FONT;
+    private static final Font FONT = new Font(Font.SANS_SERIF, Font.BOLD, 18);
 
     ///////////////////////////////////////////////////////////////////
     /**
@@ -344,7 +343,7 @@ public class InfantFrame extends JFrame
          * @throws IOException 
          * @throws FontFormatException 
          */
-        private DataPanel() throws FontFormatException, IOException
+        private DataPanel() throws IOException
         {
             // Background color of the panel
             this.setBackground(new Color(200, 200, 230));
@@ -653,15 +652,9 @@ public class InfantFrame extends JFrame
      * @throws IOException 
      * @throws FontFormatException 
      */
-    public InfantFrame() throws FontFormatException, IOException
+    public InfantFrame() throws IOException
     {
         super("Infant Explorer");
-        
-      //Font Setup
-        File file = new File("font/Raleway-Regular.ttf");
-        FileInputStream stream = new FileInputStream(file);
-        FONT = Font.createFont(Font.TRUETYPE_FONT, stream);
-        FONT = FONT.deriveFont(Font.BOLD, 18);
 
         // Menu bar
         FileMenuBar fileMenuBar;

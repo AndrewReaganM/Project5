@@ -54,7 +54,7 @@ public class StateTest
                 + "right_knee x = -0.116; y = -0.101; z = -0.038; \n"
                 + "right_shoulder x = 0.182; y = -0.136; z = 0.021; \n"
                 + "right_wrist x = 0.214; y = -0.292; z = -0.019; \n" + "robot_vel l = 0.005; r = -0.012; \n"
-                + "sippc_action scalar = 0.000; \n" + "time scalar = 0.000; \n"
+                + "sippc_action  = 0.000; \n" + "time  = 0.000; \n"
                 + "upper_back x = 0.187; y = -0.049; z = 0.073; \n", inf.getItem(0).getItem(0).toString());
         State sta = new State();
         Assert.assertEquals("", sta.toString());

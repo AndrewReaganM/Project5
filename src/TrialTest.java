@@ -41,7 +41,7 @@ public class TrialTest
         Assert.assertEquals("Tests the Trial getter that returns a state", 0.248,
                 inf.getItem(0).getItem(0).getValue("left_wrist", "x").getDoubleValue(), 0.001);
         Assert.assertEquals("Week 01", inf.getItem(0).getItem(0).getTrial().toString());
-        Assert.assertEquals("scalar(0); ", inf.getItem(0).getFieldMapper().getField("time").toString());
+        Assert.assertEquals("(0); ", inf.getItem(0).getFieldMapper().getField("time").toString());
     }
 
 }

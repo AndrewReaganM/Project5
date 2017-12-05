@@ -200,7 +200,7 @@ public class State extends SingleItemAbstract
         while (tempIterator.hasNext())
         {
             String tempField = tempIterator.next();
-            strConcat += tempField + " " + this.getPoint(tempField).toString() + "\n";
+            strConcat += tempField + " (" + this.getPoint(tempField).toString() + ")\n";
         }
         return strConcat;
     }

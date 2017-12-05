@@ -4,8 +4,6 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -38,7 +36,7 @@ public class KinematicPanel extends JPanel
     /** Panel title */
     private String title;
     /** Font used for panel title. */
-    private static Font FONT;
+    private static final Font FONT = new Font(Font.SANS_SERIF, Font.BOLD, 18);
 
     /**
      * Constructor
@@ -61,7 +59,7 @@ public class KinematicPanel extends JPanel
      *             when the font is not in the correct format.
      */
     public KinematicPanel(KinematicPointAbstract rootPoint, double flipX, double flipY, String screenXSubfield,
-            String screenYSubfield, String title) throws FontFormatException, IOException
+            String screenYSubfield, String title) throws IOException
     {
 
         super();
@@ -72,12 +70,6 @@ public class KinematicPanel extends JPanel
         this.screenYSubfield = screenYSubfield;
         this.setPreferredSize(new Dimension(400, 200));
         this.title = title;
-
-        // Font Setup
-        File file = new File("font/Raleway-Regular.ttf");
-        FileInputStream stream = new FileInputStream(file);
-        FONT = Font.createFont(Font.TRUETYPE_FONT, stream);
-        FONT = FONT.deriveFont(Font.BOLD, 14);
 
         // Draw the title
         JLabel titleLabel = new JLabel();
